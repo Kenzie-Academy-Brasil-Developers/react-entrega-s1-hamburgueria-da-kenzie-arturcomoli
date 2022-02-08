@@ -8,7 +8,6 @@ function App() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([]);
-  console.log(products);
 
   useEffect(() => {
     fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
@@ -26,18 +25,6 @@ function App() {
     setProducts(filterInput);
   };
 
-  const addToCart = (productId) => {
-    console.log(productId);
-
-    const findProduct = products.find((item) => {
-      console.log(item.id);
-      return item.id === productId;
-    });
-    console.log(findProduct);
-    setCurrentSale([...currentSale, findProduct]);
-  };
-  // console.log(currentSale);
-
   return (
     <>
       {/* { setFilteredProducts, showProducts } */}
@@ -46,7 +33,11 @@ function App() {
         showProducts={() => showProducts(filteredProducts)}
       />
       <main>
-        <ProductsList products={products} addToCart={() => addToCart()} />
+        <ProductsList
+          products={products}
+          setCurrentSale={setCurrentSale}
+          currentSale={currentSale}
+        />
         <Cart currentSale={currentSale} />
       </main>
     </>

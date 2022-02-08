@@ -3,13 +3,9 @@ import "./styles.css";
 
 const Product = ({ id, name, category, price, img, addToCart }) => {
   const fixedPrice = price.toFixed(2).replace(".", ",");
-  console.log(id);
-  console.log(name);
-  console.log(category);
-  console.log(price);
-  console.log(img);
+
   return (
-    <li className="li-flex" key={id}>
+    <li className="li-flex" key={id} id={id}>
       <div className="div-img">
         <img src={img} alt="" />
       </div>
@@ -21,7 +17,7 @@ const Product = ({ id, name, category, price, img, addToCart }) => {
         <Button
           children={"Adicionar"}
           className={"medium medium-green-product"}
-          onClick={() => addToCart(id)}
+          onClick={addToCart}
         />
       </div>
     </li>
