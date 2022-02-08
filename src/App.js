@@ -8,6 +8,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
     fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
@@ -25,6 +26,15 @@ function App() {
     setProducts(filterInput);
   };
 
+  useEffect(() => {
+    const sum = currentSale.reduce((acc, cur) => {
+      return acc + cur.price;
+    }, 0);
+    setCartTotal(sum);
+  }, [currentSale]);
+
+  // total(currentSale);
+
   return (
     <>
       {/* { setFilteredProducts, showProducts } */}
@@ -38,7 +48,7 @@ function App() {
           setCurrentSale={setCurrentSale}
           currentSale={currentSale}
         />
-        <Cart currentSale={currentSale} />
+        <Cart currentSale={currentSale} cartTotal={cartTotal} />
       </main>
     </>
   );

@@ -1,9 +1,10 @@
 import CartProduct from "../CartProduct";
 import CartTotal from "../CartTotal";
 import Empty from "../Empty";
+
 import "./styles.css";
 
-const Cart = ({ currentSale }) => {
+const Cart = ({ currentSale, cartTotal }) => {
   return (
     <>
       {currentSale.length === 0 ? (
@@ -16,8 +17,7 @@ const Cart = ({ currentSale }) => {
           <h3 className="cart-title">Carrinho de compras</h3>
 
           <ul>
-            {currentSale.map(({ name, category, img, id }) => {
-              console.log({ name, category, img, id });
+            {currentSale.map(({ name, category, img, id, price }) => {
               return (
                 <CartProduct
                   name={name}
@@ -28,7 +28,7 @@ const Cart = ({ currentSale }) => {
               );
             })}
           </ul>
-          <CartTotal currentSale={currentSale} />
+          <CartTotal cartTotal={cartTotal} />
         </div>
       )}
     </>
