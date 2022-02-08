@@ -1,0 +1,29 @@
+.div-input input {
+  width: 60%;
+  color: #e0e0e0;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 400;
+  padding: 20.5px 0 20.5px 15px;
+  border: none;
+  border-radius: 8px;
+}
+
+.div-input {
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 15px;
+  background-color: #fff;
+  max-width: 500px;
+}
+
+@media screen and (min-width: 900px) {
+  .div-input {
+    width: 40%;
+    margin: 0;
+  }
+}

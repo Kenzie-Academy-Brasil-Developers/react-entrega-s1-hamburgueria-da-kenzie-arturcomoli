@@ -1,0 +1,35 @@
+.container-total {
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.cart-total-flex {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0 20px 0;
+  width: 90%;
+  margin: 0 auto;
+  border-top: 2px solid #e0e0e0;
+}
+
+.show-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto 20px auto;
+}
+
+.show-price p {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: #333333;
+}
+
+.show-price span {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: #828282;
+}
