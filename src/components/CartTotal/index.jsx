@@ -1,7 +1,7 @@
 import "./styles.css";
 import Button from "../Button";
 
-const CartTotal = ({ cartTotal }) => {
+const CartTotal = ({ cartTotal, deleteAllProducts }) => {
   const show = cartTotal.toFixed(2).replace(".", ",");
 
   return (
@@ -14,6 +14,7 @@ const CartTotal = ({ cartTotal }) => {
         <Button
           children={"Remover Todos"}
           className={"large large-total-green"}
+          onClick={deleteAllProducts}
         ></Button>
       </div>
     </div>

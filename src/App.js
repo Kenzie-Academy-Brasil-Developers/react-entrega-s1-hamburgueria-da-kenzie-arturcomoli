@@ -33,7 +33,20 @@ function App() {
     setCartTotal(sum);
   }, [currentSale]);
 
-  // total(currentSale);
+  const deleteProduct = (productId) => {
+    const findProduct = currentSale.find((item) => {
+      return item.id === productId;
+    });
+    const index = currentSale.indexOf(findProduct);
+    const newArr = [...currentSale];
+    newArr.splice(index, 1);
+
+    setCurrentSale(newArr);
+  };
+
+  const deleteAllProducts = () => {
+    setCurrentSale([]);
+  };
 
   return (
     <>
@@ -41,6 +54,7 @@ function App() {
       <Header
         setFilteredProducts={setFilteredProducts}
         showProducts={() => showProducts(filteredProducts)}
+        filteredProducts={filteredProducts}
       />
       <main>
         <ProductsList
@@ -48,7 +62,13 @@ function App() {
           setCurrentSale={setCurrentSale}
           currentSale={currentSale}
         />
-        <Cart currentSale={currentSale} cartTotal={cartTotal} />
+        <Cart
+          currentSale={currentSale}
+          cartTotal={cartTotal}
+          // deleteProduct={() => deleteProduct()}
+          deleteProduct={deleteProduct}
+          deleteAllProducts={deleteAllProducts}
+        />
       </main>
     </>
   );

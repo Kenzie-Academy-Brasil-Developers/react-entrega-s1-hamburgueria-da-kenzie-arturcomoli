@@ -44,6 +44,15 @@
   border: 2px solid #93d7af;
 }
 
+.medium-product-disabled {
+  width: 130px;
+  margin-bottom: 22px;
+  font-weight: 600;
+  background-color: #828282;
+  color: #e0e0e0;
+  border: 2px solid #828282;
+}
+
 .large {
   font-weight: 600;
   font-size: 16px;

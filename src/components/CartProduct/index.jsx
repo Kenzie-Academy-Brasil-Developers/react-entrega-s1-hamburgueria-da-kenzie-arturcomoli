@@ -1,6 +1,6 @@
 import "./styles.css";
 
-const CartProduct = ({ name, category, img, id }) => {
+const CartProduct = ({ name, category, img, id, deleteProduct, productId }) => {
   return (
     <li className="list-cart" key={id}>
       <div className="cart-img">
@@ -11,7 +11,7 @@ const CartProduct = ({ name, category, img, id }) => {
         <span>{category}</span>
       </div>
       <div className="cart-remove">
-        <span>Remover</span>
+        <span onClick={() => deleteProduct(productId)}>Remover</span>
       </div>
     </li>
   );

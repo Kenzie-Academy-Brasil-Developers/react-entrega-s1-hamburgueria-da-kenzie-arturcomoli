@@ -21,6 +21,7 @@ const ProductsList = ({ products, setCurrentSale, currentSale }) => {
             price={price}
             img={img}
             addToCart={() => addToCart(id)}
+            currentSale={currentSale}
           />
         );
       })}

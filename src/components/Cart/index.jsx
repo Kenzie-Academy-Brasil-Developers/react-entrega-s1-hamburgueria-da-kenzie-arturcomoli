@@ -4,7 +4,7 @@ import Empty from "../Empty";
 
 import "./styles.css";
 
-const Cart = ({ currentSale, cartTotal }) => {
+const Cart = ({ currentSale, cartTotal, deleteProduct, deleteAllProducts }) => {
   return (
     <>
       {currentSale.length === 0 ? (
@@ -24,11 +24,16 @@ const Cart = ({ currentSale, cartTotal }) => {
                   category={category}
                   img={img}
                   key={id}
+                  deleteProduct={deleteProduct}
+                  productId={id}
                 />
               );
             })}
           </ul>
-          <CartTotal cartTotal={cartTotal} />
+          <CartTotal
+            cartTotal={cartTotal}
+            deleteAllProducts={deleteAllProducts}
+          />
         </div>
       )}
     </>

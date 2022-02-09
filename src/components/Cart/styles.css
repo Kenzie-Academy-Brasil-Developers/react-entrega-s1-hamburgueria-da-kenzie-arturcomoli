@@ -4,6 +4,19 @@
   margin: 15px auto;
 }
 
+ul::-webkit-scrollbar-track {
+  background-color: #f4f4f4;
+}
+
+ul::-webkit-scrollbar {
+  width: 5px;
+  background: #f4f4f4;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background: #e9ecef;
+}
+
 .cart-title {
   color: #fff;
   background-color: #27ae60;
@@ -17,6 +30,8 @@
 .cart-container ul {
   background-color: #f5f5f5;
   padding: 0 0 10px 0;
+  height: 250px;
+  overflow-y: scroll;
 }
 
 .cart-container li:first-child {
@@ -25,6 +40,13 @@
 
 @media screen and (min-width: 900px) {
   .cart-container {
-    width: 40%;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .cart-container {
+    width: 600px;
   }
 }

@@ -1,7 +1,12 @@
 import Button from "../Button";
 import "./styles.css";
 
-const InputSearch = ({ setFilteredProducts, showProducts }) => {
+const InputSearch = ({
+  setFilteredProducts,
+  showProducts,
+  filteredProducts,
+  disabled,
+}) => {
   return (
     <div className="div-input">
       <input
@@ -9,11 +14,22 @@ const InputSearch = ({ setFilteredProducts, showProducts }) => {
         placeholder="Digitar Pesquisa"
         onChange={(e) => setFilteredProducts(e.target.value)}
       />
-      <Button
-        onClick={showProducts}
-        children={"Pesquisar"}
-        className={"medium medium-green-input"}
-      />
+
+      {filteredProducts.length === 0 ? (
+        <Button
+          onClick={showProducts}
+          children={"Pesquisar"}
+          className={"medium medium-disabled-input"}
+          disabled={true}
+        />
+      ) : (
+        <Button
+          onClick={showProducts}
+          children={"Pesquisar"}
+          className={"medium medium-green-input"}
+          disabled={false}
+        />
+      )}
     </div>
   );
 };
