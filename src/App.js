@@ -9,21 +9,25 @@ function App() {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentSale, setCurrentSale] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
+  const [busca, setBusca] = useState("");
 
   useEffect(() => {
     fetch("https://hamburgueria-kenzie-json-serve.herokuapp.com/products")
       .then((res) => res.json())
       .then((res) => setProducts(res));
+    setBusca("");
   }, [filteredProducts]);
 
   const showProducts = (filteredProducts) => {
     const filterInput = products.filter((item) => {
+      setBusca(filteredProducts);
       return (
         item.name.toLowerCase().includes(filteredProducts.toLowerCase()) ||
         item.category.toLowerCase().includes(filteredProducts.toLowerCase())
       );
     });
     setProducts(filterInput);
+    // setBusca("");
   };
 
   useEffect(() => {
@@ -56,6 +60,12 @@ function App() {
         showProducts={() => showProducts(filteredProducts)}
         filteredProducts={filteredProducts}
       />
+      {filteredProducts.length !== 0 ? (
+        <h1>{`Resultados da busca por nome e categoria: ${busca}`}</h1>
+      ) : (
+        <h1>{`Resultados da busca por nome e categoria: `}</h1>
+      )}
+
       <main>
         <ProductsList
           products={products}
