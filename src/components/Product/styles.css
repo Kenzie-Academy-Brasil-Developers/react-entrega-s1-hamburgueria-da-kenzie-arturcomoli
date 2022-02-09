@@ -67,10 +67,10 @@
 
 @media screen and (min-width: 900px) {
   .li-flex {
-    width: 30%;
+    width: 15vw;
     margin: 15px;
     padding: 0 15px;
-    min-width: 200px;
+    min-width: 150px;
   }
 
   .div-img {
